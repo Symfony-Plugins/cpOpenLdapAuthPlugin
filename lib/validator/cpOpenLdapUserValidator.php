@@ -1,5 +1,5 @@
 <?php
-class LdapUserValidator extends sfValidatorBase {
+class cpOpenLdapUserValidator extends sfValidatorBase {
 
   public function configure($options = array(), $messages = array()) {
     $this->addOption('username_field', 'username');

@@ -1,6 +1,6 @@
 <?php
 
-class LdapUserFormSignin extends sfGuardFormSignin {
+class cpOpenLdapUserFormSignin extends sfGuardFormSignin {
 
   public function configure() {
     $this->setWidgets(array(
@@ -15,7 +15,7 @@ class LdapUserFormSignin extends sfGuardFormSignin {
       'remember' => new sfValidatorBoolean(),
     ));
 
-    $this->validatorSchema->setPostValidator(new LdapUserValidator());
+    $this->validatorSchema->setPostValidator(new cpOpenLdapUserValidator());
 
     $this->widgetSchema->setNameFormat('signin[%s]');
   }
