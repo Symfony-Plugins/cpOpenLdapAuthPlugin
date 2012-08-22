@@ -1,5 +1,5 @@
 <?php
-class LdapUser extends sfGuardSecurityUser {
+class cpOpenLdapUser extends sfGuardSecurityUser {
 
   public static function doCheckPassword($username, $password) {
     $config = sfYaml::load(sfConfig::get('sf_config_dir').'/LDAPAuth.yml');
