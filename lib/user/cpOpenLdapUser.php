@@ -2,9 +2,9 @@
 class cpOpenLdapUser extends sfGuardSecurityUser {
 
   public static function doCheckPassword($username, $password) {
-    $config = sfYaml::load(sfConfig::get('sf_config_dir').'/LDAPAuth.yml');
-    $config = $config['openldap'];
-    $openldap = OpenLDAP::get($config['server'], $config['param']);
+    $server = sfConfig::get('app_cp_openldapauth_plugin_server');
+    $config = sfConfig::get('app_cp_openldapauth_plugin_param');
+    $openldap = OpenLDAP::get($server, $config);
     $auth = $openldap->authenticate($username, $password);
     if ($auth) {
 //      sfContext::getInstance()->getUser()->setAttribute('groups', $auth, 'openldap');
@@ -42,8 +42,8 @@ class cpOpenLdapUser extends sfGuardSecurityUser {
   }
 
   protected static function checkGroups($ldap_groups) {
-    $config = sfYaml::load(sfConfig::get('sf_config_dir').'/LDAPAuth.yml');
-    $required = $config['openldap']['param']['group']['required'];
+    $config = sfConfig::get('app_cp_openldapauth_plugin_param');
+    $required = $config['group']['required'];
     return self::checkGroup($ldap_groups, $required, true);
   }
 

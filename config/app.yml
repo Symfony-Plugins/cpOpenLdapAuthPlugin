@@ -1,0 +1,22 @@
+#all:
+#  cp_openldapauth_plugin:
+#    server:         ldap.example.com
+#    param:
+#      port:         389
+#      tls:
+#      tls-url:
+#      basedn:       dc=example,dc=com
+#      binddn:       uid=%username%,ou=people,dc=example,dc=com
+#      protocol:     3
+#      referrals:    0
+#      timelimit:    10
+#      timeout:      10
+#      usertree:     ou=people,dc=example,dc=com
+#      userfilter:   (&(uid=%username%)(objectClass=inetOrgPerson))
+#      group:
+#        tree:       ou=groups,dc=example,dc=com
+#        filter:     (&(objectClass=groupOfUniqueNames)(uniqueMember=%userdn%))
+#        required:
+#        mapping:
+#          Admins:   admins
+#        superusers: admins
